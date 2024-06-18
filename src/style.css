@@ -1,0 +1,92 @@
+
+body {
+  overflow: hidden;
+  margin: 0;
+  /* background: linear-gradient(141.71deg, rgba(227,227,227,0.74) 0%, rgba(151,151,151,0.53) 100%) */
+}
+
+#app {
+  /* min-height: 100vh; */
+  margin: 0;
+}
+
+.m5 {
+  margin: 5px;
+}
+
+.m8 {
+  margin: 8px;
+}
+
+.br8 {
+  border-radius: 8px;
+}
+
+.bs-el {
+  box-shadow: var(--el-box-shadow-light);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* 宽度 */
+.w100 {
+  width: 100%;
+}
+
+.w80 {
+  width: 80%; 
+}
+
+.w60 {
+  width: 60%; 
+}
+
+/* 平分两份，50%宽度 */
+.divide-50 {
+  width: 50%;
+}
+
+/* 垂直居中 */
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+/* 水平居中 */
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* 页面垂直水平居中 */
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.padding-lr-8 {
+  padding: 0 8px 0 8px;
+}
+
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity .1s, transform .1s;
+}
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-10%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
