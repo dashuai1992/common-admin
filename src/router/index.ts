@@ -13,8 +13,9 @@ const loadComponent = (url: string) => {
 };
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.VITE_APP_BASE_CONTEXT),
     routes: staticRoutes,
+    
 });
 
 // 定义一个标识来标记是否需要重新加载路由

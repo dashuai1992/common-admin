@@ -18,14 +18,14 @@ function inMobileLogin(loginType: any): loginType is MobileLogin {
 
 const login = (loginType: MobileLogin | AccountLogin) => {
   if(inMobileLogin(loginType)) {
-    return service.post('/api/mobile-login', loginType);
+    return service.post('/mobile-login', loginType);
   } else {
-    return service.post('/api/account-login', loginType);
+    return service.post('/account-login', loginType);
   }
 }
 
 export const logout = (user: {account: string}) => {
-  return service.post('/api/logout', user);
+  return service.post('/logout', user);
 
 }
 
