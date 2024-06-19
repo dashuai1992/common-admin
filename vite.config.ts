@@ -50,7 +50,7 @@ export default defineConfig({
       '/common-admin/api': {
         target: 'http://127.0.0.1:4000',
         rewrite: path => {
-          let res = path.replace(/^(\/common-admin\/api\/)(.*)/, '/common-admin/static/$2.json');
+          let res = path.replace(/^(\/common-admin\/api\/)(.*)/, '/common-admin/static/$2');
           console.log(res)
           return res;
         }
