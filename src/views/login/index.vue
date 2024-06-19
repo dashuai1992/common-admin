@@ -105,7 +105,7 @@ const onLogin = () => {
 .login-page {
   width: 100%;
   height: 100vh;
-  // background: linear-gradient(to left top, #515BC6, #AC59BD);
+  background: linear-gradient(to left top, #515BC6, #AC59BD);
   padding: 32px;
 }
 .login-panel {
