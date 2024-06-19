@@ -13,7 +13,7 @@ const DRIVE_LETTER_REGEX = /^[a-z]:/i;
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.VITE_APP_BASE_CONTEXT,
+  base: '/common-admin/',
   plugins: [
     vue(),
     AutoImport({resolvers: [ElementPlusResolver()]}),
@@ -50,9 +50,8 @@ export default defineConfig({
       '/common-admin/api': {
         target: 'http://127.0.0.1:4000',
         rewrite: path => {
-          console.log(path);
-          let res = path.replace(/^(\/common-admin\/api\/)(.*)/, '/static/$2.json');
-          console.log(res);
+          let res = path.replace(/^(\/common-admin\/api\/)(.*)/, '/common-admin/static/$2.json');
+          console.log(res)
           return res;
         }
       }
