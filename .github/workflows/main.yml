@@ -27,5 +27,5 @@ jobs:
         id: deployment
         uses: crazy-max/ghaction-github-pages@v4
         with: 
-          branch: gh-pages
-          folder: dist
+          target_branch: gh-pages
+          build_dir: dist
