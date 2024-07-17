@@ -23,9 +23,13 @@ jobs:
           npm install
           npm run build
 
+      - name: Install rsync 📚
+        run: |
+          apt-get update && apt-get install -y rsync
+
       - name: Deploy to GitHub Pages 🚀
         id: deployment
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with: 
-          target_branch: gh-pages
-          build_dir: dist
+          branch: gh-pages
+          folder: dist
