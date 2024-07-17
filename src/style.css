@@ -5,6 +5,11 @@ body {
   /* background: linear-gradient(141.71deg, rgba(227,227,227,0.74) 0%, rgba(151,151,151,0.53) 100%) */
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 #app {
   /* min-height: 100vh; */
   margin: 0;

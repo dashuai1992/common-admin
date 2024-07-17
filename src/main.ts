@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import './style.css';
 import 'element-plus/theme-chalk/display.css'
+import './assets/iconfont/iconfont.css'
 import App from './App.vue';
 import { createPinia } from 'pinia';
 import { useAuthStore } from '@/stores/auth.ts';

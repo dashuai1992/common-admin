@@ -82,7 +82,7 @@
           </div>
         </el-scrollbar>
       </ContainerBody>
-      <div class="copy-right-info">Copyright © 2020-2024 YDS</div>
+      <div class="copy-right-info">Copyright © 2020-2024 YDS <span><a class="iconfont icon-github" target="_blank" href="https://github.com/dashuai1992/common-admin" /></span></div>
     </RightContainer>
   </LayoutContainer>
 </template>
