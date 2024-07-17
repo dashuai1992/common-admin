@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+.p10 {
+  padding: 10px;
+}
+
 .m5 {
   margin: 5px;
 }
@@ -71,6 +75,11 @@ body {
   padding: 0 8px 0 8px;
 }
 
+.ellipsis {
+  white-space: nowrap; /* 保证文本不会换行 */
+  overflow: hidden; /* 超出容器部分隐藏 */
+  text-overflow: ellipsis; /* 使用省略符号显示被截断的文本 */
+}
 
 .slide-enter-active,
 .slide-leave-active {

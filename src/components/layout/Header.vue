@@ -1,12 +1,11 @@
 <template>
-  <div class="header-wrapper br8 bs-el">
+  <div class="header-wrapper br8 bs-el p10">
     <slot></slot>
   </div>
 </template>
 
 <style scoped lang="scss">
 .header-wrapper {
-  padding: 10px;
   display: flex;
   align-items: center;
   background-color: #fff;

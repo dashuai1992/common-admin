@@ -8,7 +8,9 @@
             <!-- <HeaderLeft>左</HeaderLeft>
             <HeaderMidium>中间</HeaderMidium>
             <HeaderRight>右</HeaderRight> -->
-            <img class="header-logo" src="@/assets/hilife.png">
+            <HeaderMidium class="center">
+              <img class="header-logo" src="@/assets/menu_top_logo.png">
+            </HeaderMidium>
           </Header>
         </div>
         <div class="my-menu bs-el br8">
@@ -54,8 +56,23 @@
             </el-tag>
           </div>
         </HeaderMidium>
-        <HeaderRight>
-          <el-avatar shape="square" :size="50" src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
+        <HeaderRight class="user-info-wrapper">
+          <el-dropdown trigger="click">
+            <div class="user-info">
+              <el-badge :hidden="false" :value="12" :max="99">
+                <el-avatar shape="circle" :size="35" src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
+              </el-badge>
+              <div class="user-name ellipsis">{{ authStore.user.name }}</div>
+            </div>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item icon="UserFilled">用户信息</el-dropdown-item>
+                <el-dropdown-item icon="ChatLineSquare">消息<el-badge :hidden="false" :value="12" :max="99"/></el-dropdown-item>
+                <el-dropdown-item icon="EditPen">修改密码</el-dropdown-item>
+                <el-dropdown-item icon="SwitchButton">注销</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
         </HeaderRight>
       </Header>
       <ContainerBody>
@@ -65,6 +82,7 @@
           </div>
         </el-scrollbar>
       </ContainerBody>
+      <div class="copy-right-info">Copyright © 2020-2024 YDS</div>
     </RightContainer>
   </LayoutContainer>
 </template>
@@ -169,5 +187,31 @@ watch(() => router.currentRoute.value,
 
 .header-logo {
   height: 64px;
+}
+
+.user-info-wrapper {
+  :hover {
+    cursor: pointer;
+    background-color: #dedfe0;
+  }
+
+  .user-info {
+    display: flex; 
+    align-items: center;
+    padding: 5px;
+
+    .user-name {
+      margin-left: 5px;
+      color: #606266; 
+      font-size: 12px; 
+      max-width: 60px;
+    }
+  }
+}
+
+.copy-right-info {
+  font-size: 12px;
+  color: #606266;
+  text-align: center;
 }
 </style>
