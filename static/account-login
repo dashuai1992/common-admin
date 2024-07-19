@@ -16,6 +16,47 @@
         }
       },
       {
+        "name": "User",
+        "path": "/user",
+        "redirect": "/user/user-info",
+        "meta": {
+          "title": "用户管理",
+          "icon": "User"
+        },
+        "children": [
+          {
+            "name": "UserInfo",
+            "path": "/user/user-info",
+            "component": "user/UserInfo",
+            "meta": {
+                "title": "用户信息",
+                "icon": "User",
+                "hidden": "true"
+            } 
+          },
+          {
+            "name": "Message",
+            "path": "/user/message",
+            "component": "user/UserMessage",
+            "meta": {
+                "title": "消息",
+                "icon": "ChatLineSquare",
+                "hidden": "true"
+            } 
+          },
+          {
+            "name": "ModifyPassword",
+            "path": "/user/modify-password",
+            "component": "user/ModifyPassword",
+            "meta": {
+                "title": "修改密码",
+                "icon": "EditPen",
+                "hidden": "true"
+            } 
+          }
+        ]
+      },
+      {
         "name": "System",
         "path": "/system",
         "redirect": "/system/setting",
