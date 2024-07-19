@@ -1,6 +1,6 @@
 <template>
   <div class="overlay" :class="{'opacity-0': (!isCollapsible && screenWidth < SCREEN_WIDTH_THRESHOLD), 'display-none': isDisplayNone}" @click="onOff">
-    <div class="left" :class="{'width-0': !isCollapsible, 'display-none': isDisplayNone}">
+    <div class="left" :class="{'width-0': !isCollapsible, 'display-none': isDisplayNone}" @click="(e) => {e.stopPropagation()}">
       <div class="left-content">
         <slot></slot>
       </div>

@@ -2,7 +2,7 @@
   <LayoutContainer>
     <!-- 左边布局 -->
     <LeftContainer ref="left" v-model="expanded">
-      <div @click="(e) => {e.stopPropagation()}">
+      <div>
         <div>
           <Header>
             <!-- <HeaderLeft>左</HeaderLeft>
@@ -56,23 +56,8 @@
             </el-tag>
           </div>
         </HeaderMidium>
-        <HeaderRight class="user-info-wrapper">
-          <el-dropdown trigger="click">
-            <div class="user-info">
-              <el-badge :hidden="false" :value="12" :max="99">
-                <el-avatar shape="circle" :size="35" src="https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png" />
-              </el-badge>
-              <div class="user-name ellipsis">{{ authStore.user.name }}</div>
-            </div>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item icon="UserFilled">用户信息</el-dropdown-item>
-                <el-dropdown-item icon="ChatLineSquare">消息<el-badge :hidden="false" :value="12" :max="99"/></el-dropdown-item>
-                <el-dropdown-item icon="EditPen">修改密码</el-dropdown-item>
-                <el-dropdown-item icon="SwitchButton">注销</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
+        <HeaderRight class="header-user-info">
+          <IndexHeaderUser></IndexHeaderUser>
         </HeaderRight>
       </Header>
       <ContainerBody>
@@ -97,6 +82,7 @@ import HeaderLeft from './HeaderLeft.vue';
 import HeaderMidium from './HeaderMidium.vue';
 import HeaderRight from './HeaderRight.vue';
 import MyMenuItem from './MyMenuItem.vue';
+import IndexHeaderUser from '@/views/user/IndexHeaderUser.vue'
 
 import { watch } from 'vue';
 import { ref, reactive } from 'vue';
@@ -118,7 +104,14 @@ const expanded = ref(true);
 const selectedTag = ref("");
 
 // 记录已经打开的页面，header显示的标签tag
-const tags = reactive<HeaderTag[]>([]);
+const tags = reactive<HeaderTag[]>([
+  {
+    name: "主页",
+    path: "/",
+    checked: true,
+    closable: false
+  }
+]);
 
 const handleTagClose = (tag: HeaderTag) => {
   let index = tags.findIndex(x => compare(x, tag));
@@ -126,8 +119,10 @@ const handleTagClose = (tag: HeaderTag) => {
 
   // 判断该tag是否是被选中的状态
   // 如果是选中的状态，需要处理页面的切换
-  if (tag.checked && tags.length >= 1) {
-    selectTag(tags.length - 1);
+  if (tags.length >= 1) {
+    if(tag.checked) {
+      selectTag(tags.length - 1);
+    }
   } else {
     router.push("/");
   }
@@ -148,7 +143,7 @@ const newOpenTag = (tag: HeaderTag) => {
   }
 }
 
-const compare = (item: HeaderTag, target: HeaderTag) => item.path === target.path
+const compare = (item: HeaderTag, target: HeaderTag) => item.path === target.path;
 
 const selectTag = (index: number) => {
   selectedTag.value = tags[index].path;
@@ -189,24 +184,10 @@ watch(() => router.currentRoute.value,
   height: 64px;
 }
 
-.user-info-wrapper {
-  :hover {
-    cursor: pointer;
-    background-color: #dedfe0;
-  }
-
-  .user-info {
-    display: flex; 
-    align-items: center;
-    padding: 5px;
-
-    .user-name {
-      margin-left: 5px;
-      color: #606266; 
-      font-size: 12px; 
-      max-width: 60px;
-    }
-  }
+.header-user-info:hover {
+  cursor: pointer;
+  background-color: #dedfe0;
+  border-radius: 3px;
 }
 
 .copy-right-info {
