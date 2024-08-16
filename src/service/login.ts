@@ -11,17 +11,15 @@ export interface AccountLogin {
   password: string,
 }
 
+type LoginParam = MobileLogin | AccountLogin;
+
 function inMobileLogin(loginType: any): loginType is MobileLogin {
   return typeof loginType.mobile === 'string' 
     && typeof loginType.verifyCode === 'string';
 }
 
-const login = (loginType: MobileLogin | AccountLogin) => {
-  if(inMobileLogin(loginType)) {
-    return service.get('/mobile-login', {params: {loginType}});
-  } else {
-    return service.get('/account-login', {params: {loginType}});
-  }
+const login = (loginType: LoginParam) => {
+  return service.get(inMobileLogin(loginType) ? '/mobile-login' : '/account-login', { params: { loginType } });
 }
 
 export const logout = (user: {account: string}) => {
