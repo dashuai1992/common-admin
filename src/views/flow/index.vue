@@ -23,7 +23,7 @@
 <script setup lang="ts">
 // import { ref, watch } from 'vue';
 import { useVueFlow, VueFlow, Panel, ConnectionMode } from '@vue-flow/core';
-import type { Node, Edge} from '@vue-flow/core';
+import type { Node } from '@vue-flow/core';
 import { Background } from '@vue-flow/background';
 import { MiniMap } from '@vue-flow/minimap';
 import { Controls } from '@vue-flow/controls';
