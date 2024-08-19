@@ -1,0 +1,1 @@
+import{aE as r,aT as n}from"./index-untXIC5m.js";const t=o=>{const u=r(o)?o:[o],e=[];return u.forEach(s=>{var a;r(s)?e.push(...t(s)):n(s)&&r(s.children)?e.push(...t(s.children)):(e.push(s),n(s)&&((a=s.component)!=null&&a.subTree)&&e.push(...t(s.component.subTree)))}),e};export{t as f};

@@ -75,6 +75,26 @@
             }
           }
         ]
+      },
+      {
+        "name": "Flow",
+        "path": "/flow",
+        "redirect": "/flow/index",
+        "meta": {
+          "title": "流程管理",
+          "icon": "Guide"
+        },
+        "children": [
+          {
+            "name": "Flow",
+            "path": "/flow/index",
+            "component": "flow/index",
+            "meta": {
+                "title": "流程图",
+                "icon": "WindPower"
+            }
+          }
+        ]
       }
     ]
   }
